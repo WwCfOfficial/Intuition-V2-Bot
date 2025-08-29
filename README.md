@@ -27,29 +27,90 @@ See [DISCLAIMER.md](./DISCLAIMER.md) for details.
 
 ## ⚡ Quick Start (Ubuntu VPS)
 
-```bash
 # Install dependencies
+```bash
 sudo apt update -y
 sudo apt install -y build-essential curl git
+```
 
 # Install Node.js 20 via NVM
+```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 nvm install 20
 nvm alias default 20
+```
 
-# Get project
+# Prepare the project directory
+```bash
 mkdir -p $HOME/intuition-bot && cd $HOME/intuition-bot
 npm init -y
 npm pkg set type=module
-npm i ethers solc chalk cli-table3 axios
+```
+
+# Install dependencies (ethers v5 required)
+```bash
+npm install ethers@5 solc chalk cli-table3 axios
+```
+
+⚠️ Using ethers@5 is critical. v6 will break JsonRpcProvider.
 
 # Add your testnet private key (test funds only!)
+```bash
 echo "0xYOUR_TESTNET_PRIVATE_KEY" > pk.txt
+```
 
-# Put the bot file
+# Download the bot file
+```bash
 wget https://raw.githubusercontent.com/WwCfOfficial/Intuition-V2-Bot/main/IntuitionV2.js
+```
 
-# Run it
+# Run the bot
+```bash
 node IntuitionV2.js
+```
+
+# You should see:
+
+>=== Intuition Testnet Bot Menu ===<
+  01 > Belridge Trust - Base Sepolia  <
+  02 > Bridge L2 -> L1                <
+  ...
+Select an option (1-12):
+
+The solc warning (node:…) Invalid asm.js is normal and can be ignored.
+
+# Before Run Bot Follow That 
+# Go to the Intuition Testnet Portal
+
+## Open your browser and visit:
+https://portal.intuition.systems/
+
+Connect your testnet wallet (MetaMask or any wallet you use) to the portal.
+
+## Request testnet funds from the faucet
+
+Faucet URL: https://testnet.hub.intuition.systems/
+
+Enter your wallet address (the same one in pk.txt)
+
+Click “Request Testnet Funds” or similar button
+
+You will receive small amounts of tTRUST or testnet ETH to cover transactions.
+
+## Check your wallet balance
+
+Make sure your wallet shows enough tTRUST to cover the bot’s transactions.
+
+You can also check in the bot menu:
+
+Option 09 > Show Balance
+
+## Run your bot again
+
+Once your wallet has funds, select 11 > Run All Transactions
+
+The bot will now process without the “Insufficient balance” error.
+
+💡 Tip: Always use testnet keys here, never your mainnet wallet. You can request more funds from the faucet if needed.
