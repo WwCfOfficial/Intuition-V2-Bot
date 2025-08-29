@@ -71,9 +71,32 @@ wget https://raw.githubusercontent.com/WwCfOfficial/Intuition-V2-Bot/main/Intuit
 node IntuitionV2.js
 ```
 
+# Additionally Follow 
+# Run it (plain) or inside screen
+
+Plain run
+```bash
+cd $HOME/intuition-bot
+node IntuitionV2.js
+```
+
+Run inside screen (so it keeps running after you disconnect)
+```bash
+screen -S intuition
+cd $HOME/intuition-bot
+node IntuitionV2.js
+```
+# Detach: press Ctrl+A then D
+# Reattach later:
+```bash
+screen -r intuition
+```
+# Kill the session (from inside): Ctrl+C to stop the bot, then `exit`
+
 # You should see:
 
 >=== Intuition Testnet Bot Menu ===<
+  
   01 > Belridge Trust - Base Sepolia  <
   02 > Bridge L2 -> L1                <
   ...
