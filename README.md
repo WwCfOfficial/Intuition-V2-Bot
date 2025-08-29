@@ -49,12 +49,37 @@ npm init -y
 npm pkg set type=module
 ```
 
-# Install dependencies (ethers v5 required)
+# Install dependencies (ethers v5 + solc v0.8.x required)
 ```bash
-npm install ethers@5 solc chalk cli-table3 axios
+npm install ethers@5 solc@0.8.21 chalk cli-table3 axios
 ```
 
-⚠️ Using ethers@5 is critical. v6 will break JsonRpcProvider.
+⚠️ Notes:
+
+ethers@5 → required for JsonRpcProvider (v6 breaks the bot).
+
+solc@0.8.21 → required for ERC20/NFT contracts that use unchecked { … }.
+
+Other dependencies (chalk, cli-table3, axios) remain unchanged.
+
+# Verify solc version
+```bash
+npx solcjs --version
+```
+You should see something like:
+```
+0.8.21+commit.0.7a4f0f
+```
+
+# Update your ERC20 Solidity code (if needed)
+
+At the top of your ERC20 .sol file (like SimpleERC20.sol), make sure it says:
+```bash
+pragma solidity ^0.8.0;
+```
+This ensures unchecked { … } is valid.
+
+💡 Note: After upgrading solc, the bot can now handle modern ERC20/NFT contracts with unchecked arithmetic safely.
 
 # Add your testnet private key (test funds only!)
 ```bash
