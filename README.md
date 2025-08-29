@@ -49,7 +49,7 @@ npm i ethers solc chalk cli-table3 axios
 echo "0xYOUR_TESTNET_PRIVATE_KEY" > pk.txt
 
 # Put the bot file
-wget https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/intuition-bot/main/IntuitionV2.js
+wget https://raw.githubusercontent.com/WwCfOfficial/Intuition-V2-Bot/main/IntuitionV2.js
 
 # Run it
 node IntuitionV2.js
