@@ -1,0 +1,17 @@
+# Git ignore rules 
+# Sensitive
+pk.txt
+*.key
+*.pem
+
+# Node modules
+node_modules/
+npm-debug.log
+.env
+
+# Cache / generated
+*.json
+!.watchlist.json
+!.last_deployed_erc20.json
+!.last_deployed_nft.json
+
